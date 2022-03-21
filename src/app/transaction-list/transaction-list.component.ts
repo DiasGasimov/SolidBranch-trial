@@ -48,4 +48,8 @@ export class TransactionListComponent implements OnInit {
             this.transactions = [];
         }
     }
+
+    ngOnDestroy(): void {
+        this.querySubscription.unsubscribe();
+      }
 }
