@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center">
+          <h3 class="card-title">Welcome</h3>
+          <p class="card-text">Here you can find the info about your transactions</p>
+          <a [routerLink]="'/navigator'" class="btn btn-primary">See transactions</a>
+        </div>
+        <div class="card-footer text-center">
+          You have {{transactions.length}} transactions
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let transactionTotalInfo of transactionTotalInfos" class="col mt-2">
+      <div class="card">
+        <div class="card-body text-left">
+          <h3 class="card-title">{{transactionTotalInfo.total}}</h3>
+          <p class="card-text">{{transactionTotalInfo.type}}</p>
+          <div class="d-flex justify-content-end">
+            <a [routerLink]="'/navigator'" [queryParams]="{'tab' : transactionTotalInfo.tabNumber}" class="btn btn-primary">See all</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

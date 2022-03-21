@@ -1,0 +1,31 @@
+<div class="container">
+  <ul class="nav nav-tabs nav-fill">
+    <li *ngFor="let navTab of navTabs" class="nav-item">
+      <a class="nav-link" [routerLink]="'/navigator'" [queryParams]="{'tab' : navTab.tabNumber}"
+        [routerLinkActive]="'active'">{{navTab.type}}</a>
+    </li>
+  </ul>
+  <div>
+    <table *ngIf="transactions.length > 0" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>
+            {{transaction.name.first + ' ' + transaction.name.last}}
+          </td>
+          <td>
+            {{transaction.amount}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="transactions.length === 0" class="text-center mt-4 font-weight-bold">
+      Please pick transaction type at the top of the page
+    </div>
+  </div>
+</div>
